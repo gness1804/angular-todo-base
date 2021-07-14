@@ -6,18 +6,14 @@
     <button type="submit" [disabled]="newtaskinput.value == ''" mat-raised-button color="primary"
       (click)="addTask(newtaskinput.value); newtaskinput.value = ''">Add</button>
   </form>
-
-
-
   <mat-card *ngIf="tasks.length > 0">
     <mat-list>
-      <mat-list-item *ngFor="let task of tasks;let i = index">
+      <mat-list-item *ngFor="let task of tasks;">
         <mat-checkbox [(ngModel)]="task.isDone" color="primary">{{task.name}}</mat-checkbox>
         <button matTooltip="Delete task" matTooltipPosition="above" mat-icon-button (click)="removeTask(task)">
           <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
         </button>
         <mat-divider></mat-divider>
-
       </mat-list-item>
     </mat-list>
   </mat-card>
