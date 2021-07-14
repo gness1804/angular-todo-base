@@ -14,11 +14,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SelectorComponent } from './selector/selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Dialog
+    Dialog,
+    SelectorComponent
   ],
   imports: [
     BrowserModule,

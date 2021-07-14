@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { Dialog } from './confirmation/confirmation.component';
 
 @Component({
@@ -15,7 +15,6 @@ export class AppComponent {
 
   addTask(name: string) {
     if (name === "") return;
-    // TODO: add dialog here
     this.tasks.push({
       name,
       isDone: false
