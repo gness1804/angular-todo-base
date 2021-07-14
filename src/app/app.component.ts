@@ -6,5 +6,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todo-app';
+
+  tasks: Task[] = []
+
+  addTask(name: string) {
+    if (name === "") return;
+    this.tasks.push({
+      name: name,
+      isDone: false
+    });
+  }
+
+  removeTask(task: Task) {
+    this.tasks.splice(this.tasks.indexOf(task), 1);
+  }
+
+}
+
+type Task = {
+  name: string;
+  isDone: boolean;
 }
