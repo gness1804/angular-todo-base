@@ -1,10 +1,7 @@
 <div class="selector">
   <label class="selector-label" for="characters">Choose your favorite Marvel character</label>
-  <select name="characters" id="characters">
-  <option value="widow">Black Widow</option>
-  <option value="thanos">Thanos</option>
-  <option value="iron">Iron Man</option>
-  <option value="hulk">Incredible Hulk</option>
-  <option value="spider">Spider Man</option>
+  <select name="characters" id="characters" [(ngModel)]="selected">
+    <option *ngFor="let superhero of superheros" [ngValue]="superhero">{{superhero.name}}</option>
   </select>
+  <p class="selector-message">Selected superhero is {{selected.name}}</p>
 </div>
