@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(public dialog: MatDialog) { }
 
   tasks: Task[] = []
 
@@ -18,10 +22,22 @@ export class AppComponent {
   }
 
   removeTask(task: Task) {
-    this.tasks.splice(this.tasks.indexOf(task), 1);
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent);
+
+    dialogRef.afterClosed().pipe(
+      filter(Boolean)
+    ).subscribe(() => {
+      this.tasks.splice(this.tasks.indexOf(task), 1);
+    });
   }
 
 }
+
+@Component({
+  selector: 'app-confirmation-dialog',
+  templateUrl: './confirmation-dialog.component.html',
+})
+export class ConfirmationDialogComponent { }
 
 type Task = {
   name: string;
